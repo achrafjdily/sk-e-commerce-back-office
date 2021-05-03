@@ -1,0 +1,6 @@
+.route-icon {
+    @apply mr-4;
+}
+::ng-deep.mat-list-item-content {
+    @apply flex justify-between w-full;
+}

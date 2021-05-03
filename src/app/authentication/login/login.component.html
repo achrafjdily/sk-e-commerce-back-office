@@ -1,0 +1,34 @@
+<div class="relative h-full w-full flex items-center">
+
+    <mat-card class="w-1/5 m-auto z-10 relative">
+        <mat-card-header>
+            <mat-card-title class="text-2xl mb-4">Login</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+            <mat-card-content class="mx-4">
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Username / Email / Phone</mat-label>
+                    <input matInput placeholder="Username / Email / Phone" formControlName="usermail">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                </mat-form-field>
+
+            </mat-card-content>
+            <mat-card-actions class="flex justify-end">
+                <button mat-raised-button type="submit" color="primary">Login</button>
+            </mat-card-actions>
+        </form>
+
+    </mat-card>
+    <div class="absolute flex w-full h-full top-0 left-0 z-0">
+        <div class="bg-blue-50 w-1/2 h-full">
+
+        </div>
+        <div class="bg-blue-500 w-1/2 h-full">
+
+        </div>
+    </div>
+</div>
