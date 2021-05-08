@@ -1,0 +1,20 @@
+<button mat-stroked-button [matMenuTriggerFor]="menu">
+  <div class="flex items-center p-1">
+    <div class="w-8 h-8 rounded-full bg-red-500"></div>
+    <div class="ml-2">{{ user.name }}</div>
+  </div>
+</button>
+<mat-menu #menu="matMenu" xPosition="before" class="bg-moenn-primary-50">
+  <button mat-menu-item>
+    <div class="flex items-center">
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </div>
+  </button>
+  <button mat-menu-item (click)="emitLogout()">
+    <div class="flex items-center">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </div>
+  </button>
+</mat-menu>

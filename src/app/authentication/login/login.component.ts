@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AuthPageActions } from '../../ngrx/app-state/actions';
+import { AuthPageActions } from '../../ngrx/app-state/actions/auth';
 
 @Component({
-  selector: 'app-login',
+  selector: 'sk-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log('haha')
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
       this.store.dispatch(AuthPageActions.login({ loginRequest: this.loginForm.value }));
     }
   }

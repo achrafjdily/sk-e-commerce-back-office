@@ -1,17 +1,17 @@
-import { initToken } from './ngrx/app-state/actions/auth-page.actions';
+import { NavigationRegisteringService } from './navigation-registering.service';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthPageActions } from './ngrx/app-state/actions';
+import { AuthPageActions } from './ngrx/app-state/actions/auth';
 
 @Component({
-  selector: 'app-root',
+  selector: 'sk-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sk-e-commerce-back-office';
+  title = 'tw-material-admin-panel';
 
-  constructor(private store: Store) {
+  constructor(private navigationRegisteringService: NavigationRegisteringService, private store: Store) {
 
   }
 

@@ -1,29 +1,29 @@
-<a mat-list-item [ngStyle]="{'padding-left': (depth * 12) + 'px'}" (click)="onItemSelected(item)"
-    [ngClass]="{'expanded': expanded}" class="w-full min-w-full flex justify-between items-center text-blue-200"
+<a mat-list-item [ngStyle]="{'padding-left': (depth * 12) + 'px'}" (click)="expand(item)"
+    [ngClass]="{'expanded': expanded}" class="w-full min-w-full flex justify-between items-center text-moenn-primary-50"
     *ngIf="(item.children && item.children.length > 0);else noChildTemplate">
     <div class="flex items-center">
-        <mat-icon class="route-icon text-blue-200">{{item.iconName}}</mat-icon>
+        <mat-icon class="route-icon text-moenn-primary-50">{{item.iconName}}</mat-icon>
         {{item.displayName}}
     </div>
-    <span *ngIf="item.children && item.children.length" class="text-blue-200">
+    <span *ngIf="item.children && item.children.length" class="text-moenn-primary-50">
         <span></span>
-        <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
+        <mat-icon class="select-none" [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
             expand_more
         </mat-icon>
     </span>
 </a>
 <ng-template #noChildTemplate>
-    <a mat-list-item [ngStyle]="{'padding-left': (depth * 12) + 'px'}" (click)="onItemSelected(item)"
-        [ngClass]="{'expanded': expanded}" class="w-full flex justify-between text-blue-200"
-        [routerLink]="['/'+ unescape(item.route)]" routerLinkActive="router-link-active" #noChildTemplate>
+    <a mat-list-item [ngStyle]="{'padding-left': (depth * 12) + 'px'}" [ngClass]="{'expanded': expanded}"
+        class="w-full flex justify-between text-moenn-primary-50" (click)="formatUrl(item)"
+        [routerLink]="['/'+ formatUrl(item)]" routerLinkActive="router-link-active" #noChildTemplate>
         <div class="flex items-center">
-            <mat-icon class="route-icon text-blue-200">{{item.iconName}}</mat-icon>
+            <mat-icon class="route-icon text-moenn-primary-50">{{item.iconName}}</mat-icon>
             {{item.displayName}}
         </div>
     </a>
 </ng-template>
 
 <div *ngIf="expanded">
-    <app-menu-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1">
-    </app-menu-item>
+    <sk-menu-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1">
+    </sk-menu-item>
 </div>

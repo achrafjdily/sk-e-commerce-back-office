@@ -3,7 +3,7 @@ import { switchMap, map, catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { AuthApiActions, AuthPageActions } from '../actions';
+import { AuthApiActions, AuthPageActions } from '../actions/auth';
 
 
 
@@ -18,6 +18,16 @@ export class AuthEffects {
       switchMap((action) => this.AuthService.login(action.loginRequest).pipe(
         map(loginResponse => AuthApiActions.loginSuccess({ loginResponse: loginResponse })),
         catchError(error => of(AuthApiActions.loginFailure({ error })))
+      ))
+    )
+  })
+
+  logout$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AuthPageActions.logout),
+      switchMap(() => this.AuthService.logout().pipe(
+        map(logoutResponse => AuthApiActions.logoutSuccess({ successLogout : logoutResponse })),
+        catchError(error => of(AuthApiActions.logoutFailure({ error })))
       ))
     )
   })

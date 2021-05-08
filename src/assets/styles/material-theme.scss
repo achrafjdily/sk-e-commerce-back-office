@@ -1,0 +1,273 @@
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+// Foreground Elements
+
+// Light Theme Text
+$moenn-dark-text: #090f14;
+$moenn-dark-primary-text: rgba($moenn-dark-text, 0.87);
+$moenn-dark-accent-text: rgba($moenn-dark-primary-text, 0.54);
+$moenn-dark-disabled-text: rgba($moenn-dark-primary-text, 0.38);
+$moenn-dark-dividers: rgba($moenn-dark-primary-text, 0.12);
+$moenn-dark-focused: rgba($moenn-dark-primary-text, 0.12);
+
+$mat-light-theme-foreground: (
+  base:              black,
+  divider:           $moenn-dark-dividers,
+  dividers:          $moenn-dark-dividers,
+  disabled:          $moenn-dark-disabled-text,
+  disabled-button:   rgba($moenn-dark-text, 0.26),
+  disabled-text:     $moenn-dark-disabled-text,
+  elevation:         black,
+  secondary-text:    $moenn-dark-accent-text,
+  hint-text:         $moenn-dark-disabled-text,
+  accent-text:       $moenn-dark-accent-text,
+  icon:              $moenn-dark-accent-text,
+  icons:             $moenn-dark-accent-text,
+  text:              $moenn-dark-primary-text,
+  slider-min:        $moenn-dark-primary-text,
+  slider-off:        rgba($moenn-dark-text, 0.26),
+  slider-off-active: $moenn-dark-disabled-text,
+);
+
+// Dark Theme text
+$moenn-light-text: #eff5fa;
+$moenn-light-primary-text: $moenn-light-text;
+$moenn-light-accent-text: rgba($moenn-light-primary-text, 0.7);
+$moenn-light-disabled-text: rgba($moenn-light-primary-text, 0.5);
+$moenn-light-dividers: rgba($moenn-light-primary-text, 0.12);
+$moenn-light-focused: rgba($moenn-light-primary-text, 0.12);
+
+$mat-dark-theme-foreground: (
+  base:              $moenn-light-text,
+  divider:           $moenn-light-dividers,
+  dividers:          $moenn-light-dividers,
+  disabled:          $moenn-light-disabled-text,
+  disabled-button:   rgba($moenn-light-text, 0.3),
+  disabled-text:     $moenn-light-disabled-text,
+  elevation:         black,
+  hint-text:         $moenn-light-disabled-text,
+  secondary-text:    $moenn-light-accent-text,
+  accent-text:       $moenn-light-accent-text,
+  icon:              $moenn-light-text,
+  icons:             $moenn-light-text,
+  text:              $moenn-light-text,
+  slider-min:        $moenn-light-text,
+  slider-off:        rgba($moenn-light-text, 0.3),
+  slider-off-active: rgba($moenn-light-text, 0.3),
+);
+
+// Background config
+// Light bg
+$moenn-light-background:    #eff5fa;
+$moenn-light-bg-darker-5:   darken($moenn-light-background, 5%);
+$moenn-light-bg-darker-10:  darken($moenn-light-background, 10%);
+$moenn-light-bg-darker-20:  darken($moenn-light-background, 20%);
+$moenn-light-bg-darker-30:  darken($moenn-light-background, 30%);
+$moenn-light-bg-moenn-lighter-5:  moenn-lighten($moenn-light-background, 5%);
+$moenn-dark-bg-tooltip:     moenn-lighten(#090f14, 20%);
+$moenn-dark-bg-alpha-4:     rgba(#090f14, 0.04);
+$moenn-dark-bg-alpha-12:    rgba(#090f14, 0.12);
+
+$mat-light-theme-background: (
+  background:               $moenn-light-background,
+  status-bar:               $moenn-light-bg-darker-20,
+  app-bar:                  $moenn-light-bg-darker-5,
+  hover:                    $moenn-dark-bg-alpha-4,
+  card:                     $moenn-light-bg-moenn-lighter-5,
+  dialog:                   $moenn-light-bg-moenn-lighter-5,
+  tooltip:                  $moenn-dark-bg-tooltip,
+  disabled-button:          $moenn-dark-bg-alpha-12,
+  raised-button:            $moenn-light-bg-moenn-lighter-5,
+  focused-button:           $dark-focused,
+  selected-button:          $moenn-light-bg-darker-20,
+  selected-disabled-button: $moenn-light-bg-darker-30,
+  disabled-button-toggle:   $moenn-light-bg-darker-10,
+  unselected-chip:          $moenn-light-bg-darker-10,
+  disabled-list-option:     $moenn-light-bg-darker-10,
+);
+
+// Dark bg
+$moenn-dark-background:     #090f14;
+$moenn-dark-bg-lighter-5:   lighten($moenn-dark-background, 5%);
+$moenn-dark-bg-lighter-10:  lighten($moenn-dark-background, 10%);
+$moenn-dark-bg-lighter-20:  lighten($moenn-dark-background, 20%);
+$moenn-dark-bg-lighter-30:  lighten($moenn-dark-background, 30%);
+$moenn-light-bg-alpha-4:    rgba(#eff5fa, 0.04);
+$moenn-light-bg-alpha-12:   rgba(#eff5fa, 0.12);
+
+// Background palette for moenn-dark themes.
+$mat-dark-theme-background: (
+  background:               $moenn-dark-background,
+  status-bar:               $moenn-dark-bg-lighter-20,
+  app-bar:                  $moenn-dark-bg-lighter-5,
+  hover:                    $moenn-light-bg-alpha-4,
+  card:                     $moenn-dark-bg-lighter-5,
+  dialog:                   $moenn-dark-bg-lighter-5,
+  tooltip:                  $moenn-dark-bg-lighter-20,
+  disabled-button:          $moenn-light-bg-alpha-12,
+  raised-button:            $moenn-dark-bg-lighter-5,
+  focused-button:           $light-focused,
+  selected-button:          $moenn-dark-bg-lighter-20,
+  selected-disabled-button: $moenn-dark-bg-lighter-30,
+  disabled-button-toggle:   $moenn-dark-bg-lighter-10,
+  unselected-chip:          $moenn-dark-bg-lighter-20,
+  disabled-list-option:     $moenn-dark-bg-lighter-10,
+);
+
+// Theme Config
+
+body {
+  --primary-color: #5c96c9;
+  --primary-lighter-color: #cee0ef;
+  --primary-darker-color: #4179b5;
+  --text-primary-color: #{$dark-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+}
+
+body {
+  --accent-color: #54595f;
+  --accent-lighter-color: #cccdcf;
+  --accent-darker-color: #3a3e43;
+  --text-accent-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
+}
+
+body {
+  --warn-color: #d34d32;
+  --warn-lighter-color: #f2cac2;
+  --warn-darker-color: #c2341f;
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
+}
+
+
+$moenn-warn: (
+  50: #faeae6,
+  100: #f2cac2,
+  200: #e9a699,
+  300: #e08270,
+  400: #da6851,
+  500: #d34d32,
+  600: #ce462d,
+  700: #c83d26,
+  800: #c2341f,
+  900: #b72513,
+  A100: #ffeae8,
+  A200: #ffbbb5,
+  A400: #ff8d82,
+  A700: #ff7569,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$moenn-primary: (
+  50: #ebf2f8,
+  100: #cee0ef,
+  200: #aecbe4,
+  300: #8db6d9,
+  400: #74a6d0,
+  500: #5c96c8,
+  600: #548ec2,
+  700: #4a83bb,
+  800: #4179b4,
+  900: #3068a7,
+  A100: #edf5ff,
+  A200: #bad9ff,
+  A400: #87bdff,
+  A700: #6eafff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$moenn-accent: (
+  50: #eaebec,
+  100: #cccdcf,
+  200: #aaacaf,
+  300: #878b8f,
+  400: #6e7277,
+  500: #54595f,
+  600: #4d5157,
+  700: #43484d,
+  800: #3a3e43,
+  900: #292e32,
+  A100: #86c0fb,
+  A200: #54a7f9,
+  A400: #1b8dff,
+  A700: #0280ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$moenn-primary: mat-palette($moenn-primary);
+$moenn-accent: mat-palette($moenn-accent);
+
+// The warn palette is optional (defaults to red).
+$moenn-warn: mat-palette($moenn-warn);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as `color` or `typography`.
+
+$moenn-theme: mat-light-theme($moenn-primary, $moenn-accent, $moenn-warn);
+@include angular-material-theme($moenn-theme);
+
+$moenn-dark-theme: mat-dark-theme($moenn-primary, $moenn-accent, $moenn-warn);
+.dark-theme {
+  @include angular-material-theme($moenn-dark-theme);
+}
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.

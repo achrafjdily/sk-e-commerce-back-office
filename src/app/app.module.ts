@@ -1,3 +1,4 @@
+import { ToolbarProfileComponent } from './layouts/full-layout/toolbar/toolbar-profile/toolbar-profile.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AppStateModule } from './ngrx/app-state/app-state.module';
 import { SharedModule } from './shared/shared.module';
@@ -11,6 +12,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatRippleModule } from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from '@angular/material/list';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
@@ -31,6 +33,7 @@ import { environment } from '../environments/environment';
     SidebarComponent,
     MenuItemComponent,
     LoginComponent,
+    ToolbarProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +52,9 @@ import { environment } from '../environments/environment';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
     AppStateModule,
+    MatMenuModule,
+    SharedModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

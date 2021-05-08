@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./assets/styles/material-theme.scss";
 html,
 body {
     height: 100%;
@@ -12,14 +13,33 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-*:focus{
+*:focus {
     outline: none !important;
 }
 
-.w-unset{
+.w-unset {
     width: unset !important;
 }
 
-.h-unset{
+.h-unset {
     height: unset !important;
+}
+[type="text"]:focus,
+[type="email"]:focus,
+[type="url"]:focus,
+[type="password"]:focus,
+[type="number"]:focus,
+[type="date"]:focus,
+[type="datetime-local"]:focus,
+[type="month"]:focus,
+[type="search"]:focus,
+[type="tel"]:focus,
+[type="time"]:focus,
+[type="week"]:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+    outline: unset !important;
+    box-shadow: unset !important;
+    border: unset !important;
 }

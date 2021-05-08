@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'sk-e-commerce-back-office'`, () => {
+  it(`should have as title 'tw-material-admin-panel'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('sk-e-commerce-back-office');
+    expect(app.title).toEqual('tw-material-admin-panel');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('sk-e-commerce-back-office app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('tw-material-admin-panel app is running!');
   });
 });

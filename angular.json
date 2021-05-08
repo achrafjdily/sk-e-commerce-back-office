@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sk-e-commerce-back-office": {
+    "tw-material-admin-panel": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sk-e-commerce-back-office",
+            "outputPath": "dist/tw-material-admin-panel",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sk-e-commerce-back-office:build"
+            "browserTarget": "tw-material-admin-panel:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sk-e-commerce-back-office:build:production"
+              "browserTarget": "tw-material-admin-panel:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sk-e-commerce-back-office:build"
+            "browserTarget": "tw-material-admin-panel:build"
           }
         },
         "test": {
@@ -118,16 +118,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sk-e-commerce-back-office:serve"
+            "devServerTarget": "tw-material-admin-panel:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sk-e-commerce-back-office:serve:production"
+              "devServerTarget": "tw-material-admin-panel:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "sk-e-commerce-back-office"
+  "defaultProject": "tw-material-admin-panel"
 }

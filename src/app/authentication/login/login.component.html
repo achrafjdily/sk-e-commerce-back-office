@@ -1,8 +1,8 @@
 <div class="relative h-full w-full flex items-center">
 
-    <mat-card class="w-1/5 m-auto z-10 relative">
+    <mat-card class="w-1/5 m-auto z-10 relative ring-4 ring-moenn-primary-500 ring-opacity-50">
         <mat-card-header>
-            <mat-card-title class="text-2xl mb-4">Login</mat-card-title>
+            <mat-card-title class="text-2xl mb-4 pl-4 border-l-4 border-moenn-warn-500 text-moenn-warn-500">Login</mat-card-title>
         </mat-card-header>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
 
@@ -17,18 +17,22 @@
                 </mat-form-field>
 
             </mat-card-content>
-            <mat-card-actions class="flex justify-end">
-                <button mat-raised-button type="submit" color="primary">Login</button>
+            <mat-card-actions class="flex justify-center">
+                <button mat-raised-button type="submit" color="warn" class="text-white px-10 text-lg py-2">Login</button>
             </mat-card-actions>
         </form>
 
     </mat-card>
     <div class="absolute flex w-full h-full top-0 left-0 z-0">
-        <div class="bg-blue-50 w-1/2 h-full">
-
+        <div class="bg-moenn-accent-50 w-1/2 h-full flex justify-center">
+            <div class="font-bold text-8xl mt-24 text-moenn-primary-600">
+                <div>Queue</div>
+                <div>Application</div>
+            </div>
         </div>
-        <div class="bg-blue-500 w-1/2 h-full">
-
+        <div class="bg-moenn-primary-900 w-1/2 h-full flex justify-center items-start">
+            <img src="../../../assets/logos/logo.svg" class="w-1/2 mt-24 bg-white p-6 rounded-lg">
         </div>
+        <img src="../../../assets/backgrounds/back.svg" class="absolute top-0 left-0 object-bottom h-full w-full">
     </div>
 </div>

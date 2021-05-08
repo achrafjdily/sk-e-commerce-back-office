@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-blank-layout',
+  selector: 'sk-blank-layout',
   templateUrl: './blank-layout.component.html',
   styleUrls: ['./blank-layout.component.scss']
 })

@@ -1,19 +1,26 @@
 <mat-drawer-container class="h-full w-full bg-gray-50" autosize>
-  <mat-drawer #drawer class="w-1/6 shadow-2xl bg-gray-800" mode="side">
-    <div class="flex flex-col justify-center items-center my-12">
-      <div class="w-24 h-24 bg-red-500 rounded-full"></div>
-      <p class="text-white text-3xl mt-4">John doe</p>
+  <mat-drawer #drawer class="w-80 shadow-md-right bg-moenn-accent-900" mode="side" opened="true">
+    <div class="flex flex-col justify-center items-center my-12 user" *ngIf="user$ | async as user">
+      <div class="w-24 h-24 bg-moenn-warn-500 rounded-full picture"></div>
+      <p class="text-white text-3xl mt-4 name">{{ user.name }}</p>
+      <div class="flex flex-col divide-y items-center border-gray-600 data">
+        <p class="text-gray-300 text-sm mb-0">@{{ user.username }}</p>
+        <p class="text-gray-300 text-sm">{{ user.email }}</p>  
+      </div>
     </div>
-    <app-sidebar></app-sidebar>
+    <sk-sidebar [navItems]="navItems"></sk-sidebar>
   </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <mat-toolbar class="w-full bg-blue-100">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-        (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
+  <mat-drawer-content class="bg-moenn-primary-50">
+    <mat-toolbar class="bg-moenn-accent-50 shadow-md">
+      <div class="flex justify-between w-full">
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon class="text-moenn-accent-900">menu</mat-icon>
+        </button>
+        <div class="flex items-center gap-4">
+          <sk-toolbar-profile [user]="user$ | async" (logout)="logout()"></sk-toolbar-profile>
+        </div>
+      </div>
     </mat-toolbar>
-  </div>
-
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
 </mat-drawer-container>

@@ -1,3 +1,4 @@
+import { User } from './../../models/user.model';
 import { tap, map } from 'rxjs/operators';
 import { LoginResponse } from './../../models/login-response.model';
 import { AuthLinks } from './../auth.links';
@@ -13,13 +14,16 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private links: AuthLinks,private router: Router) { }
+  constructor(private http: HttpClient, private links: AuthLinks, private router: Router) { }
 
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
+    console.log('called');
     return this.http.post<LoginResponse>(this.links.LOGIN_LINK, loginRequest).pipe(
       tap(
         loginResponse => {
+          let jsonUser = JSON.stringify(loginResponse.user);
           localStorage.setItem('token', `${loginResponse.token_type} ${loginResponse.access_token}`);
+          localStorage.setItem('user', btoa(jsonUser));
           this.router.navigateByUrl('/');
         }
       ),
@@ -27,6 +31,18 @@ export class AuthService {
         loginResponse => {
           loginResponse['full_token'] = `${loginResponse.token_type} ${loginResponse.access_token}`;
           return loginResponse;
+        }
+      )
+    );
+  }
+
+  logout() : Observable<boolean>{
+    return this.http.get<boolean>(this.links.LOGOUT_LINK).pipe(
+      tap(
+        logoutResponse => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          this.router.navigateByUrl('/login');
         }
       )
     );
@@ -43,6 +59,10 @@ export class AuthService {
 
   static getToken(): string {
     return localStorage.getItem('token');
+  }
+
+  static getUser(): User | null {
+    return localStorage.getItem('user') ? <User>JSON.parse(atob(localStorage.getItem('user'))) : null;
   }
 
   static getIsLoggedIn(): boolean {

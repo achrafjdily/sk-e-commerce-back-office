@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'app-menu-item',
+  selector: 'sk-menu-item',
   templateUrl: './menu-item.component.html',
   styleUrls: ['./menu-item.component.scss'],
   animations: [
@@ -18,6 +18,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class MenuItemComponent implements OnInit {
   expanded: boolean | undefined;
+  firstExpand: boolean = true;
   @Input() item: NavItem | undefined;
   @Input() depth: number;
 
@@ -30,19 +31,39 @@ export class MenuItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onItemSelected(item: NavItem) {
-
-    if (!item.children || !item.children.length) {
-      // this.router.navigate([item.route]);
-      // this.navService.closeNav();
+  expand(item: NavItem) {
+    console.log(item);
+    if (item.route !== "" && this.firstExpand) {
+      item.children = item.children.map(children => {
+        let pastPrefixes = item.prefixes ? item.prefixes : [];
+        return {
+          ...children,
+          prefixes: [...pastPrefixes, unescape(item.route)]
+        }
+      })
     }
-    if (item.children && item.children.length) {
-      this.expanded = !this.expanded;
-    }
+    this.expanded = !this.expanded;
+    this.firstExpand = false;
   }
-  
-  unescape(x: string) {
-    return unescape(x);
+
+  formatUrl(item: NavItem) {
+    if (item.prefixes && item.prefixes.length > 0) {
+      return [...item.prefixes, unescape(item.route)].join('/');
+    }
+    return unescape(item.route);
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    if (this.item.children && this.item.children.length > 0) {
+      this.item.children = this.item.children.map(children => {
+        return {
+          ...children,
+          prefixes: []
+        }
+      })
+    }
   }
 
 }
